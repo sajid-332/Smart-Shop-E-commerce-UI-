@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartShop – Home</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] },
+          boxShadow: { soft: '0 8px 24px rgba(0,0,0,.08)' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <!-- Brand font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="./logo.jpg"/>
+</head>
+
+<body class="font-inter bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
+
+
+  <!-- MAIN NAVBAR (fixed) -->
+  <header class="fixed top-0 left-0 right-0 z-50 border-b bg-white/90 backdrop-blur dark:bg-gray-950/90">
+    <nav class="max-w-7xl mx-auto px-3 sm:px-6">
+      <div class="flex items-center gap-3 h-16">
+        <!-- Logo + brand -->
+        <a href="./index.html" class="flex items-center gap-3 group">
+          <img src="./logo.jpg" alt="SmartShop"
+               class="h-12 w-auto object-contain transition-all group-hover:scale-105 group-hover:drop-shadow">
+          <span class="font-[Playfair_Display] text-[1.6rem] tracking-wide text-gray-800 dark:text-white group-hover:text-amber-500 transition-colors">
+            SmartShop
+          </span>
+        </a>
+
+        <!-- Search Option -->
+        <div class="flex-1 max-w-3xl mx-2">
+          <form id="globalSearchForm" class="relative">
+            <input id="globalSearchInput" type="search" placeholder="Search SmartShop"
+              class="w-full rounded-xl border pl-4 pr-12 py-2 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-400"/>
+            <button class="absolute right-0 top-0 h-full px-4 rounded-r-xl bg-amber-400 hover:bg-amber-500 text-gray-900">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right controls -->
+        <div class="ml-auto flex items-center gap-2 sm:gap-3">
+          <!-- Theme -->
+          <!-- <button id="themeToggle" class="p-2 rounded-xl border hover:bg-gray-100 dark:hover:bg-gray-800" title="Toggle theme">
+            <i id="themeIcon" class="fa-regular fa-moon text-lg"></i>
+          </button> -->
+
+            <button id="themeToggle" aria-label="Toggle Theme" class="p-2 rounded-xl border hover:bg-gray-100 dark:hover:bg-gray-800">
+            🌗
+          </button>
+
+          <!--  Language & Currency -->
+<div class="relative">
+  <!-- Globe icon button (keep existing JS toggle) -->
+  <button id="langCurBtn"
+          class="p-2 rounded-xl border hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+          title="Language & Currency">
+    <i class="fa-solid fa-language"></i>
+  </button>
+
+  <!-- Updated dropdown menu -->
+  <div id="langCurMenu"
+       class="hidden absolute right-0 mt-2 w-80 rounded-2xl shadow-2xl ring-1 ring-black/5
+              bg-gradient-to-br from-white/95 to-white/85 dark:from-gray-900/95 dark:to-gray-900/85
+              backdrop-blur-xl p-4 space-y-3 z-50">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-300">
+        <i class="fa-solid fa-language text-blue-600"></i>
+        Language
+      </div>
+      <span class="text-[11px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-200">
+        SmartShop
+      </span>
+    </div>
+
+    <!-- Languages -->
+    <div class="grid grid-cols-2 gap-2">
+      <button data-lang="en"
+              class="px-4 py-2 rounded-xl border bg-white/90 dark:bg-gray-800/70
+                     hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20
+                     text-sm font-medium shadow-sm transition flex items-center justify-center gap-2">
+        <i class="fa-regular fa-circle-check opacity-70"></i>
+        English
+      </button>
+
+      <button data-lang="zh"
+              class="px-4 py-2 rounded-xl border bg-white/90 dark:bg-gray-800/70
+                     hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20
+                     text-sm font-medium shadow-sm transition flex items-center justify-center gap-2">
+        <i class="fa-regular fa-circle-check opacity-70"></i>
+        中文
+      </button>
+    </div>
+
+    <!-- Divider -->
+    <div class="h-px bg-gray-200 dark:bg-gray-800 my-2"></div>
+
+    <!-- Currency header -->
+    <div class="flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-300">
+      <i class="fa-solid fa-coins text-amber-500"></i>
+      Currency
+    </div>
+
+    <!-- Currencies -->
+    <div class="grid grid-cols-3 gap-2">
+      <button data-cur="USD"
+              class="px-3 py-2 rounded-xl border bg-white/90 dark:bg-gray-800/70
+                     hover:border-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20
+                     text-sm font-medium shadow-sm transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-dollar-sign opacity-80"></i> USD
+      </button>
+
+      <button data-cur="CNY"
+              class="px-3 py-2 rounded-xl border bg-white/90 dark:bg-gray-800/70
+                     hover:border-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20
+                     text-sm font-medium shadow-sm transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-yen-sign opacity-80"></i> CNY
+      </button>
+
+      <button data-cur="BDT"
+              class="px-3 py-2 rounded-xl border bg-white/90 dark:bg-gray-800/70
+                     hover:border-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20
+                     text-sm font-medium shadow-sm transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-bangladeshi-taka-sign opacity-80"></i> BDT
+      </button>
+    </div>
+
+    <p class="text-[11px] text-gray-400 dark:text-gray-500 pt-1"></p>
+  </div>
+</div>
+
+          <!-- Cart -->
+          <a href="./cart.html" class="relative p-2 rounded-xl border transition hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-800" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCountBadge" class="absolute -top-1 -right-1 text-[10px] px-1.5 py-0.5 rounded-full bg-blue-600 text-white">0</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SUB-NAVBAR (fixed under, hides on scroll) -->
+  <div id="subNav" class="fixed top-16 left-0 right-0 z-40 border-t bg-white dark:bg-gray-950 transition-transform duration-300 will-change-transform">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 h-12 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <!-- All Categories -->
+        <div class="relative">
+          <button id="allCatBtn" class="px-3 py-2 rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-800">
+            <i class="fa-solid fa-bars me-2"></i> All categories
+          </button>
+          <div id="allCatMenu" class="hidden absolute left-0 mt-2 w-[22rem] max-h-[70vh] overflow-y-auto rounded-xl border bg-white dark:bg-gray-950 shadow-soft p-2"></div>
+        </div>
+
+        <!-- Featured selections -->
+        <div class="relative">
+          <button id="featuredBtn" class="px-3 py-2 rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-800">
+            Featured selections <i class="fa-solid fa-caret-down ms-2"></i>
+          </button>
+          <div id="featuredMenu" class="hidden absolute left-0 mt-2 w-64 rounded-xl border bg-white dark:bg-gray-950 shadow-soft p-2">
+            <button data-feature="top-ranking" class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+              <i class="fa-solid fa-ranking-star me-2"></i> Top ranking
+            </button>
+            <button data-feature="new-arrivals" class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+              <i class="fa-regular fa-square-plus me-2"></i> New arrivals
+            </button>
+            <button data-feature="top-deals" class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+              <i class="fa-solid fa-tags me-2"></i> Top deals
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- More menu -->
+      <div class="relative">
+        <button id="moreBtn" class="px-3 py-2 rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-800">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div id="moreMenu" class="hidden absolute right-0 mt-2 w-60 rounded-xl border bg-white dark:bg-gray-950 shadow-soft p-2">
+          <a href="./login.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+            <i class="fa-regular fa-user"></i> Sign in / Sign up
+          </a>
+          <a href="./supplier.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+            <i class="fa-solid fa-briefcase"></i> Become a supplier
+          </a>
+          <a href="./order-track.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+            <i class="fa-solid fa-truck"></i> Order track
+          </a>
+          <a href="./help.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+            <i class="fa-regular fa-circle-question"></i> Help center
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spacers -->
+  <div class="h-16"></div>
+  <div class="h-12"></div>
+
+<!-- ======= Full-bleed Sliding Banner ======= -->
+<section class="mt-2">
+  <div class="relative w-screen left-1/2 -translate-x-1/2">
+    <div id="bannerTrack"
+         class="flex will-change-transform transition-transform duration-700 ease-[cubic-bezier(.2,.7,.2,1)]">
+      <!-- four images -->
+      <img class="slide w-screen h-[55vh] md:h-[70vh] object-cover flex-shrink-0 select-none"
+           src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1600&auto=format&fit=crop"
+           alt="Promo 1" draggable="false">
+      <img class="slide w-screen h-[55vh] md:h-[70vh] object-cover flex-shrink-0 select-none"
+           src="https://static.vecteezy.com/system/resources/thumbnails/004/299/835/small/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-free-vector.jpg"
+           alt="Promo 2" draggable="false">
+      <img class="slide w-screen h-[55vh] md:h-[70vh] object-cover flex-shrink-0 select-none"
+           src="https://c8.alamy.com/comp/2C94609/online-shopping-web-banner-template-design-flat-design-style-online-shopping-web-banner-vector-illustration-design-2C94609.jpg"
+           alt="Promo 3" draggable="false">
+      <img class="slide w-screen h-[55vh] md:h-[70vh] object-cover flex-shrink-0 select-none"
+           src="https://e0.pxfuel.com/wallpapers/606/84/desktop-wallpaper-ecommerce-website-design-company-noida-e-commerce-banner-design-e-commerce.jpg"
+           alt="Promo 4" draggable="false">
+    </div>
+
+    <!-- Arrows -->
+    <button id="prevBanner"
+            class="absolute left-3 top-1/2 -translate-y-1/2 grid place-items-center h-10 w-10 rounded-full
+                   bg-white/90 hover:bg-white text-gray-800 shadow border dark:bg-gray-800/90 dark:text-gray-100">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button id="nextBanner"
+            class="absolute right-3 top-1/2 -translate-y-1/2 grid place-items-center h-10 w-10 rounded-full
+                   bg-white/90 hover:bg-white text-gray-800 shadow border dark:bg-gray-800/90 dark:text-gray-100">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+</section>
+
+
+  <!-- Products -->
+  <section class="max-w-7xl mx-auto px-3 sm:px-6 mt-8">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-2xl font-bold">Products</h2>
+      <p id="productsMsg" class="text-sm"></p>
+    </div>
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="max-w-7xl mx-auto px-3 sm:px-6 mt-10 mb-16">
+    <h2 class="text-2xl font-bold mb-4">What customers say</h2>
+    <div id="reviewsCards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </section>
+
+  <footer class="border-t">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 py-6 text-sm flex flex-col md:flex-row items-center justify-between gap-3">
+      <p>© <span id="year"></span> SmartShop</p>
+      <a href="#" id="backToTop" class="px-3 py-2 rounded-xl border hover:bg-gray-100 dark:hover:bg-gray-800">Back to Top ↑</a>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

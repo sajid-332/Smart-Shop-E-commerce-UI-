@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Doremon",
+    "product": "Blue Gadget Pack",
+    "rating": 5,
+    "date": "2025-10-01",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkLuHeX-mGe3MlUTk1E0ULa9r5A1F2Be973A&s",
+    "comment": "Amazing view and super clean space. Highly recommend!"
+  },
+  {
+    "name": "Monkey D. Luffy",
+    "product": "Straw Hat",
+    "rating": 4.5,
+    "date": "2025-09-21",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtnjU-w0M1VNrsr9t-STMGGdlx2GabJYm5dA&s",
+    "comment": "Great location and fast Wi-Fi for work. Check-in was seamless."
+  },
+  {
+    "name": "Son Goku",
+    "product": "Power Capsule",
+    "rating": 5,
+    "date": "2025-09-12",
+    "avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSapvEqwD3fwgHxixuARIAoVHRrnU9_e3Tzcg&s",
+    "comment": "Exactly like the photos. Would buy again!"
+  }
+]

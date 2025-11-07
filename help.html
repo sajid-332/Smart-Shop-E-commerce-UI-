@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartShop – Help Center</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode:'class',
+      theme:{ extend:{
+        fontFamily:{ inter:['Inter','ui-sans-serif','system-ui'] },
+        boxShadow:{ soft:'0 8px 24px rgba(0,0,0,.08)'}
+      }}
+    }
+  </script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <link rel="icon" href="./logo.jpg"/>
+
+  <style>
+    @keyframes slide-down { from{transform:translateY(-10px);opacity:0} to{transform:translateY(0);opacity:1} }
+    .animate-slide-down{ animation:slide-down .25s ease-out }
+  </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
+
+
+  <!-- Simple header -->
+  <header class="border-b bg-white/90 backdrop-blur dark:bg-gray-950/90 sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-3">
+        <img src="./logo.jpg" class="h-10 w-auto object-contain" alt="SmartShop">
+        <span class="font-[Playfair_Display] text-xl">SmartShop</span>
+      </a>
+      <a href="./index.html" class="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium shadow-md hover:from-blue-700 hover:to-indigo-700 transition">
+        <i class="fa-solid fa-house me-2"></i> Home
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden py-14 text-center text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1526403223771-4f1162facf02?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-3">Help Center</h1>
+      <p class="opacity-90">We’re here to help. Browse FAQs, track orders, or contact our support team.</p>
+      <div class="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="./order-track.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-blue-700 font-semibold shadow hover:bg-blue-50">
+          <i class="fa-solid fa-truck-fast"></i> Track an Order
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/90 text-indigo-700 font-semibold shadow hover:bg-white">
+          <i class="fa-solid fa-headset"></i> Contact Support
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- Quick contact tiles -->
+    <section id="contact" class="grid md:grid-cols-3 gap-4">
+      <div class="rounded-2xl border bg-white dark:bg-gray-950 p-5 shadow-soft hover:shadow-md transition">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 grid place-items-center rounded-xl bg-blue-600 text-white"><i class="fa-solid fa-envelope-open-text"></i></div>
+          <div>
+            <p class="font-semibold">Email us</p>
+            <p class="text-sm opacity-70">support@smartshop.example</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl border bg-white dark:bg-gray-950 p-5 shadow-soft hover:shadow-md transition">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 grid place-items-center rounded-xl bg-amber-500 text-white"><i class="fa-solid fa-comments"></i></div>
+          <div>
+            <p class="font-semibold">Live chat</p>
+            <p class="text-sm opacity-70">9AM – 9PM (GMT+6)</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl border bg-white dark:bg-gray-950 p-5 shadow-soft hover:shadow-md transition">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 grid place-items-center rounded-xl bg-emerald-600 text-white"><i class="fa-solid fa-phone-volume"></i></div>
+          <div>
+            <p class="font-semibold">Call us</p>
+            <p class="text-sm opacity-70">+880-1XXX-XXXXXX</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
+      <div class="space-y-3" id="faq">
+        <!-- item -->
+        <details class="group rounded-2xl border bg-white dark:bg-gray-950 p-4 shadow-soft">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <span class="font-semibold">How long does delivery take?</span>
+            <i class="fa-solid fa-chevron-down transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-2 text-sm opacity-80">Most orders ship within 24–48 hours. Standard delivery takes 3–7 business days depending on your location.</p>
+        </details>
+
+        <details class="group rounded-2xl border bg-white dark:bg-gray-950 p-4 shadow-soft">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <span class="font-semibold">What is the return policy?</span>
+            <i class="fa-solid fa-chevron-down transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-2 text-sm opacity-80">You can return items within 7 days of delivery in original condition. Refunds are processed within 3–5 days.</p>
+        </details>
+
+        <details class="group rounded-2xl border bg-white dark:bg-gray-950 p-4 shadow-soft">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <span class="font-semibold">How do I apply coupons?</span>
+            <i class="fa-solid fa-chevron-down transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-2 text-sm opacity-80">Use SMART10, SMART20 or SMART30 on the Cart page. Discounts apply to <b>subtotal</b>.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Complaint / contact form -->
+    <section class="grid lg:grid-cols-2 gap-6">
+      <div class="rounded-2xl border bg-white dark:bg-gray-950 p-6 shadow-soft">
+        <h3 class="text-xl font-bold mb-2">Send us a message</h3>
+        <p class="text-sm opacity-70 mb-4">We usually reply within a business day.</p>
+
+        <form id="helpForm" class="space-y-3">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <input id="name" type="text" placeholder="Full name" class="rounded-xl border px-3 py-2 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+            <input id="email" type="email" placeholder="Email address" class="rounded-xl border px-3 py-2 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+          </div>
+          <input id="subject" type="text" placeholder="Subject" class="w-full rounded-xl border px-3 py-2 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+          <textarea id="message" rows="5" placeholder="Describe your issue..." class="w-full rounded-xl border px-3 py-2 bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400" required></textarea>
+
+          <div class="flex items-center gap-2 text-sm">
+            <input id="agree" type="checkbox" class="accent-blue-600" required>
+            <label for="agree">I agree to SmartShop’s terms & privacy.</label>
+          </div>
+
+          <button class="mt-1 px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold shadow hover:from-blue-700 hover:to-indigo-700">
+            Submit
+          </button>
+          <p id="formMsg" class="text-sm mt-1"></p>
+        </form>
+      </div>
+
+      <!-- Sidebar tips -->
+      <div class="rounded-2xl border bg-gradient-to-br from-blue-50 to-amber-50 dark:from-gray-950 dark:to-gray-800 p-6 shadow-soft">
+        <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+          <i class="fa-solid fa-lightbulb text-amber-500"></i> Quick Tips
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex gap-2"><i class="fa-regular fa-square-check text-blue-600 mt-1"></i> Check your <b>Order ID</b> on the Cart success message.</li>
+          <li class="flex gap-2"><i class="fa-regular fa-square-check text-blue-600 mt-1"></i> Track orders from the <b>Order Tracking</b> page.</li>
+          <li class="flex gap-2"><i class="fa-regular fa-square-check text-blue-600 mt-1"></i> For refunds, see our <b>Return Policy</b> in FAQs.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed top-5 right-5 hidden z-50">
+    <div class="rounded-2xl bg-emerald-600 text-white px-5 py-3 shadow-lg flex items-center gap-3 animate-slide-down">
+      <i class="fa-solid fa-circle-check text-xl"></i>
+      <div>
+        <p class="font-semibold">Message sent!</p>
+        <p id="toastMsg" class="text-sm opacity-90">We’ll get back to you soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t py-6 text-center text-sm text-gray-600 dark:text-gray-400">
+    © <span id="year"></span> SmartShop • All Rights Reserved
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple form handler (demo)
+    const form = document.getElementById('helpForm');
+    const formMsg = document.getElementById('formMsg');
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if(!name || !email || !subject || !message){
+        formMsg.textContent = 'Please fill in all fields.';
+        formMsg.className = 'text-sm text-amber-600';
+        return;
+      }
+
+      // Demo: persist to localStorage
+      const ticket = {
+        id: 'TCK' + Math.floor(10000 + Math.random()*90000),
+        name, email, subject, message, date: new Date().toISOString()
+      };
+      const list = JSON.parse(localStorage.getItem('smartshop-tickets') || '[]');
+      list.push(ticket);
+      localStorage.setItem('smartshop-tickets', JSON.stringify(list));
+
+      form.reset();
+      formMsg.textContent = '';
+      // Toast
+      const toast = document.getElementById('toast');
+      const msg = document.getElementById('toastMsg');
+      msg.textContent = `Ticket ${ticket.id} created. We’ll email you at ${email}.`;
+      toast.classList.remove('hidden');
+      setTimeout(()=>toast.classList.add('hidden'), 4500);
+    });
+  </script>
+</body>
+</html>
